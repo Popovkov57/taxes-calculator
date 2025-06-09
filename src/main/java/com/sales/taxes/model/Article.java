@@ -1,4 +1,4 @@
-package com.sales.taxes;
+package com.sales.taxes.model;
 
 public class Article {
 
