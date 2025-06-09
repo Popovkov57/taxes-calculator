@@ -104,20 +104,15 @@ public class TaxesCalculatorApplication {
 	}
 
 	private static String parseName(String line) {
-		String name = "";
-		name = line.substring(2, line.lastIndexOf("at"));
-		return name;
+        return line.substring(2, line.lastIndexOf("at"));
 	}
 
 	private static double parsePrice(String line) {
-		String price = "";
-		price = line.substring(line.lastIndexOf("at")+3);
-		return Double.parseDouble(price);
+		return Double.parseDouble(line.substring(line.lastIndexOf("at")+3));
 	}
 
 	private static List<String> extractedLines (String inputFilePath) {
-		BufferedReader bufferedReader = getReader(inputFilePath);
-		return bufferedReader.lines().toList();
+		return getReader(inputFilePath).lines().toList();
 	}
 
 	private static BufferedReader getReader (String inputFilePath) {
@@ -128,7 +123,6 @@ public class TaxesCalculatorApplication {
         } catch (FileNotFoundException e) {
             log.error(e.getMessage());
         }
-        BufferedReader bufferedReader = new BufferedReader(inputFileReader);
-		return bufferedReader;
+		return inputFileReader != null ? new BufferedReader(inputFileReader) : null;
 	}
 }

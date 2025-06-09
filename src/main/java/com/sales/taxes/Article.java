@@ -14,8 +14,6 @@ public class Article {
 
     private boolean importedTaxes;
 
-    public Article () {}
-
     public Article (int quantity, String name, double price, boolean basicTaxes, boolean importedTaxes) {
         this.quantity = quantity;
         this.name = name;
