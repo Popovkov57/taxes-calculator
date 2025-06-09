@@ -59,15 +59,13 @@ public class TaxesCalculatorApplication {
 	}
 
 	private static double getSalesTaxes (List<Article> articleList) {
-		double salesTaxes = articleList.stream().mapToDouble(article -> (article.getPriceWithTaxes() - article.getPrice())*article.getQuantity()).sum();
-		return salesTaxes;
+		return articleList.stream().mapToDouble(article -> (article.getPriceWithTaxes() - article.getPrice())*article.getQuantity()).sum();
 	}
 
 	private static double getTotalPrice (List<Article> articleList) {
-		double totalPrice = articleList.stream().mapToDouble(article -> {
+		return articleList.stream().mapToDouble(article -> {
 			return article.getPriceWithTaxes()*article.getQuantity();
 		}).sum();
-		return totalPrice;
 	}
 
 	private static Article extractArticle(String line) {
